@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pcmedic Fundão - Centro de Competências Tecnológicas</title>
+    <style>
+        /* Reset e Definições Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Cabeçalho / Navbar */
+        header {
+            background-color: #0b2545;
+            color: #ffffff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #134074;
+            background: #ffffff;
+            padding: 5px 15px;
+            border-radius: 4px;
+        }
+
+        .logo span {
+            color: #0b2545;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #8da9c4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+            color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #eef4f8;
+        }
+
+        /* Secções Gerais */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: #0b2545;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #134074;
+            margin: 10px auto 0 auto;
+        }
+
+        /* Serviços (Cards Grid) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #134074;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: #0b2545;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Impacto / Desenvolvimento Local */
+        .impact-bg {
+            background-color: #eef4f8;
+        }
+
+        .impact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .impact-item {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .impact-item h4 {
+            color: #134074;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .impact-item .number {
+            background: #134074;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /* Curiosidade & Links */
+        .curiosity-box {
+            background: #fff;
+            border-left: 5px solid #8da9c4;
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .curiosity-box h3 {
+            color: #0b2545;
+            margin-bottom: 10px;
+        }
+
+        .media-section {
+            text-align: center;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background-color: #0b2545;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-link:hover {
+            background-color: #134074;
+        }
+
+        .btn-youtube {
+            background-color: #bb0000;
+        }
+
+        .btn-youtube:hover {
+            background-color: #990000;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0b2545;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho / Navegação -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">pcmedic<span>Fundão</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#impacto">Impacto Local</a></li>
+                    <li><a href="#media">Media</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="sobre">
+        <div class="container">
+            <h1>pcmedic Fundão</h1>
+            <p>Uma empresa tecnológica portuguesa, especializada em suporte técnico e gestão de sistemas. No Fundão, opera um dos seus principais centros de competências, servindo clientes individuais e grandes contas corporativas nos setores de telecomunicações e seguros.</p>
+        </div>
+    </section>
+
+    <!-- Principais Serviços -->
+    <section id="servicos" class="container">
+        <h2 class="section-title">Principais Serviços Prestados</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Suporte Técnico Remoto</h3>
+                <p>Resolução eficiente de problemas em computadores, smartphones, redes Wi-Fi e dispositivos IoT (Internet of Things).</p>
+            </div>
+            <div class="service-card">
+                <h3>Gestão de Infraestruturas</h3>
+                <p>Manutenção contínua e monitorização avançada de parques informáticos e ecossistemas tecnológicos para empresas.</p>
+            </div>
+            <div class="service-card">
+                <h3>Serviços de Helpdesk</h3>
+                <p>Linhas de apoio especializado para grandes operadoras, auxiliando utilizadores finais em configurações e avarias.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cibersegurança e Backup</h3>
+                <p>Implementação de soluções robustas de proteção de dados, prevenção de ameaças digitais e recuperação de sistemas.</p>
+            </div>
+            <div class="service-card">
+                <h3>Ferramentas de Diagnóstico</h3>
+                <p>Desenvolvimento de software proprietário focado na otimização e aceleração da assistência técnica remota.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribuição para o Desenvolvimento -->
+    <section id="impacto" class="impact-bg">
+        <div class="container">
+            <h2 class="section-title">Contribuição para o Desenvolvimento do Fundão</h2>
+            <div class="impact-list">
+                <div class="impact-item">
+                    <h4><span class="number">1</span> Emprego Qualificado</h4>
+                    <p>Um dos maiores empregadores tecnológicos do concelho. Oferece centenas de postos de trabalho, fixando jovens licenciados e técnicos (IPCB/UBI) no interior com salários competitivos.</p>
+                </div>
+                <div class="impact-item">
+                    <h4><span class="number">2</span> Atração de Talento</h4>
+                    <p>Colaboração ativa no programa "Move to Fundão", ajudando a fixar profissionais nacionais e estrangeiros que procuram a qualidade de vida da Beira Baixa.</p>
+                </div>
+                <div class="impact-item">
+                    <h4><span class="number">3</span> Reconversão (Reskilling)</h4>
+                    <p>Participação em bootcamps de formação intensa, transformando profissionais de áreas em declínio em técnicos especializados em IT.</p>
+                </div>
+                <div class="impact-item">
+                    <h4><span class="number">4</span> Ecossistema Local</h4>
+                    <p>Dinamiza a restauração, imobiliário e comércio, validando o Fundão no mercado como um destino seguro para novos investimentos globais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curiosidade e Links -->
+    <section id="media" class="container media-section">
+        <div class="curiosity-box">
+            <h3>💡 Curiosidade</h3>
+            <p>A pcmedic foi uma das primeiras "âncoras" a acreditar na visão da Câmara Municipal do Fundão de transformar a cidade numa "Smart City", provando que a distância geográfica dos grandes centros (Lisboa/Porto) já não é uma barreira para a inovação.</p>
+        </div>
+
+        <h2 class="section-title">Canais e Redes Sociais</h2>
+        <p style="margin-bottom: 20px;">Aceda aos canais oficiais e conheça mais sobre o ecossistema da pcmedic:</p>
+        <a href="https://www.youtube.com/user/PCmedicHF" target="_blank" class="btn-link btn-youtube">YouTube Oficial pcmedic</a>
+        <a href="https://youtu.be/YR4rYZ79Ji0?si=7PisLiCIXi1FpdzZ" target="_blank" class="btn-link">Vídeo de Apresentação</a>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 pcmedic Fundão. Desenvolvido com base no material institucional.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
